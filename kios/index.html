@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Kios Print Mandiri</title>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #e5e7eb; }
+    .gas-iframe {
+      position: absolute;
+      top: -32px; 
+      left: 0;
+      width: 100%;
+      height: calc(100% + 32px); 
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- GANTI URL DI BAWAH DENGAN URL GAS ANDA, PASTIKAN ADA ?page=kios DI BELAKANGNYA -->
+  <iframe class="gas-iframe" allow="autoplay; fullscreen; printing" 
+          src="https://script.google.com/macros/s/AKfycbyvbKLIDrhweNGf4Vqs-DJcv4alWm8ihhyeFuSfBYssA0mrBjxUhXCt-2KKKjqQcX4/exec?page=kios">
+  </iframe>
+</body>
+</html>
