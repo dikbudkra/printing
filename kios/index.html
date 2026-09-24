@@ -3,23 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Kios Print Mandiri</title>
+  <!-- Judul yang akan muncul di tab browser -->
+  <title>Kios Print Mandiri 2026</title>
+  
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #e5e7eb; }
+    /* Reset margin dan kunci layar agar tidak bisa di-scroll dari luar */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; 
+      background-color: #e5e7eb; /* Warna abu-abu senada dengan tema aplikasi */
+    }
+
+    /* Trik Utama: Geser iframe ke atas untuk menyembunyikan banner GAS */
     .gas-iframe {
       position: absolute;
-      top: -32px; 
+      top: -6px; /* Tinggi banner Google biasanya 28-32px */
       left: 0;
       width: 100%;
-      height: calc(100% + 32px); 
+      height: calc(100% + 6px); /* Tambah tinggi kompensasi agar bagian bawah tidak terpotong */
       border: none;
     }
   </style>
 </head>
 <body>
-  <!-- GANTI URL DI BAWAH DENGAN URL GAS ANDA, PASTIKAN ADA ?page=kios DI BELAKANGNYA -->
-  <iframe class="gas-iframe" allow="autoplay; fullscreen; printing" 
-          src="https://script.google.com/macros/s/AKfycbyvbKLIDrhweNGf4Vqs-DJcv4alWm8ihhyeFuSfBYssA0mrBjxUhXCt-2KKKjqQcX4/exec?page=kios">
-  </iframe>
+
+  <!-- Iframe yang memuat Web App GAS Anda -->
+  <iframe id="appFrame" class="gas-iframe" allow="autoplay; fullscreen; printing"></iframe>
+
+  <script>
+    // 1. GANTI URL DI BAWAH INI DENGAN URL WEB APP GAS ANDA (yang berakhiran /exec)
+    const urlGAS = "https://script.google.com/macros/s/AKfycbyvbKLIDrhweNGf4Vqs-DJcv4alWm8ihhyeFuSfBYssA0mrBjxUhXCt-2KKKjqQcX4/exec?page=kios";
+
+    // 2. Ambil parameter dari URL GitHub (misal: ?page=kios)
+    const parameterURL = window.location.search; 
+
+    // 3. Gabungkan URL GAS dengan parameter, lalu masukkan ke iframe
+    // Jika dibuka biasa, otomatis jadi form upload. Jika ditambah ?page=kios, otomatis jadi Dashboard
+    document.getElementById('appFrame').src = urlGAS + parameterURL;
+  </script>
+
 </body>
 </html>
