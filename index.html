@@ -3,46 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Judul yang akan muncul di tab browser -->
-  <title>Kios Print Mandiri 2026</title>
-  
+  <title>Upload Kios Print Bintek 2026</title>
   <style>
-    /* Reset margin dan kunci layar agar tidak bisa di-scroll dari luar */
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden; 
-      background-color: #e5e7eb; /* Warna abu-abu senada dengan tema aplikasi */
-    }
-
-    /* Trik Utama: Geser iframe ke atas untuk menyembunyikan banner GAS */
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f3f4f6; }
     .gas-iframe {
       position: absolute;
-      top: -12px; /* Tinggi banner Google biasanya 28-32px */
+      top: -32px; 
       left: 0;
       width: 100%;
-      height: calc(100% + 12px); /* Tambah tinggi kompensasi agar bagian bawah tidak terpotong */
+      height: calc(100% + 32px); 
       border: none;
     }
   </style>
 </head>
 <body>
-
-  <!-- Iframe yang memuat Web App GAS Anda -->
-  <iframe id="appFrame" class="gas-iframe" allow="autoplay; fullscreen; printing"></iframe>
-
-  <script>
-    // 1. GANTI URL DI BAWAH INI DENGAN URL WEB APP GAS ANDA (yang berakhiran /exec)
-    const urlGAS = "https://script.google.com/macros/s/AKfycbz2k9N8_-lTonGhM3SHdeaPyyc3BkM7C6Xnhki2rEvB9juKnL1dbs72AhVZPFgTR7hI/exec";
-
-    // 2. Ambil parameter dari URL GitHub (misal: ?page=kios)
-    const parameterURL = window.location.search; 
-
-    // 3. Gabungkan URL GAS dengan parameter, lalu masukkan ke iframe
-    // Jika dibuka biasa, otomatis jadi form upload. Jika ditambah ?page=kios, otomatis jadi Dashboard
-    document.getElementById('appFrame').src = urlGAS + parameterURL;
-  </script>
-
+  <!-- GANTI URL DI BAWAH DENGAN URL GAS ANDA -->
+  <iframe class="gas-iframe" allow="autoplay; fullscreen; printing" 
+          src="https://script.google.com/macros/s/AKfycbz2k9N8_-lTonGhM3SHdeaPyyc3BkM7C6Xnhki2rEvB9juKnL1dbs72AhVZPFgTR7hI/exec">
+  </iframe>
 </body>
 </html>
